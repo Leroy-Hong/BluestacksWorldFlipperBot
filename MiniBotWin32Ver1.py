@@ -161,11 +161,10 @@ def press_and_release(key):
     time.sleep(.1)
     win32api.PostMessage(hwndChild, win32con.WM_KEYUP, key, 0)
 
-isPaused = False
 playersMissing = 0
 currentScreen = 0
 
-windowName = '64 Main'
+windowName = '4GB 4Core Portrait'
 #Check matching.png, PauseButton.png
 
 hwnd = win32gui.FindWindow(None, windowName)
@@ -180,7 +179,7 @@ else:
     print("hwnd not found")
     exit()
 
-win32gui.SendMessage(hwnd, win32con.WM_ACTIVATE, win32con.WA_CLICKACTIVE, 0)
+win32gui.SendMessage(hwndChild, win32con.WM_ACTIVATE, win32con.WA_CLICKACTIVE, 0)
 time.sleep(2)
 while True:
     if currentScreen == Screens.coopScreen.value:
@@ -190,10 +189,11 @@ while True:
         time.sleep(1)
         press_and_release(VK_CODE["a"])
         currentScreen = Screens.lobbyScreen.value
+        print("Looby screen")
         time.sleep(2)
 
     elif currentScreen == Screens.lobbyScreen.value:
-        for i in pyautogui.locateAllOnScreen('Assets/Matching.PNG', confidence=0.9):
+        for i in pyautogui.locateAllOnScreen('Assets/Matching.PNG', confidence=0.8):
             playersMissing += 1
             print(i)
         print(f"PLayers missing:{playersMissing}")
@@ -202,8 +202,9 @@ while True:
         if playersMissing <= 1:
             press_and_release(VK_CODE["a"])
             pauseButton = pyautogui.locateCenterOnScreen(
-                'Assets/PauseButton.PNG', confidence=0.7)
+                'Assets/PauseButton.PNG', confidence=0.9)
             if pauseButton:
+                time.sleep(0.5)
                 press_and_release(VK_CODE["f"])
                 currentScreen = Screens.pauseScreen.value
             else:
@@ -218,8 +219,8 @@ while True:
         time.sleep(0.5)
         press_and_release(VK_CODE["d"])
         currentScreen = Screens.coopScreen.value
-        time.sleep(3.5)
-        playersMissing = 2
+        time.sleep(6)
+        playersMissing = 0
 
 
 
