@@ -26,7 +26,7 @@ while True:
         time.sleep(2)
 
     elif currentScreen == Screens.lobbyScreen.value:
-        for i in pyautogui.locateAllOnScreen('D:\Documents\PythonProjects\BluestacksWorldFlipper\Matching.PNG', confidence=0.9):
+        for i in pyautogui.locateAllOnScreen('Assets/Matching.PNG', confidence=0.9):
             playersMissing += 1
             print(i)
         print(f"PLayers missing:{playersMissing}")
@@ -35,7 +35,7 @@ while True:
         if playersMissing <= 1:
             keyboard.press_and_release('a')
             pauseButton = pyautogui.locateCenterOnScreen(
-                'D:\Documents\PythonProjects\BluestacksWorldFlipper\PauseButton.PNG', confidence=0.7)
+                'Assets/PauseButton.PNG', confidence=0.7)
             if pauseButton:
                 keyboard.press_and_release('f')
                 currentScreen = Screens.pauseScreen.value

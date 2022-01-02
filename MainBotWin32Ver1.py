@@ -193,7 +193,7 @@ time.sleep(2)
 
 while True:
     if currentScreen == Screens.coopScreen.value:
-        miniRoom = pyautogui.locateCenterOnScreen('D:\Documents\PythonProjects\BluestacksWorldFlipper\MiniRoom.PNG', confidence=0.92)
+        miniRoom = pyautogui.locateCenterOnScreen('Assets/MiniRoom.PNG', confidence=0.92)
         if miniRoom:
             print(miniRoom)
             click_and_release(miniRoom.x, miniRoom.y)
@@ -201,11 +201,11 @@ while True:
             print("AAA")
         else:
             refreshButton = pyautogui.locateCenterOnScreen(
-                'D:\Documents\PythonProjects\BluestacksWorldFlipper\RefreshListButton.PNG', confidence=0.95)
+                'Assets/RefreshListButton.PNG', confidence=0.95)
             if refreshButton:
                 pyautogui.click(x=refreshButton.x, y=refreshButton.y, clicks=1, button='left')
         readyMainButton = pyautogui.locateCenterOnScreen(
-                'D:\Documents\PythonProjects\BluestacksWorldFlipper\ReadyMainButton.PNG', confidence=0.95)
+                'Assets/ReadyMainButton.PNG', confidence=0.95)
         if readyMainButton:
             pyautogui.click(x=readyMainButton.x, y=readyMainButton.y, clicks=1, button='left')
             time.sleep(1)
@@ -214,12 +214,12 @@ while True:
 
     elif currentScreen == Screens.winScreen.value:
         questResult = pyautogui.locateOnScreen(
-            'D:\Documents\PythonProjects\BluestacksWorldFlipper\QuestResult.PNG', confidence=0.9)
+            'Assets/QuestResult.PNG', confidence=0.9)
         if questResult:
             smallNext = pyautogui.locateCenterOnScreen(
-            'D:\Documents\PythonProjects\BluestacksWorldFlipper\SmallNext.PNG', confidence=0.9)
+            'Assets/SmallNext.PNG', confidence=0.9)
             smallLeave = pyautogui.locateCenterOnScreen(
-            'D:\Documents\PythonProjects\BluestacksWorldFlipper\SmallLeave.PNG', confidence=0.9)
+            'Assets/SmallLeave.PNG', confidence=0.9)
             if smallNext:
                 pyautogui.click(x=smallNext.x, y=smallNext.y, clicks=4, interval=0.1, button='left')
             elif smallLeave:

@@ -5,12 +5,12 @@ import time
 
 playersMissing = 0
 while True:
-    nextButton = pyautogui.locateCenterOnScreen('D:\Documents\PythonProjects\BluestacksWorldFlipper/NextButton.PNG',
+    nextButton = pyautogui.locateCenterOnScreen('Assets/NextButton.PNG',
                                                 confidence=0.7)
     if nextButton:
         pyautogui.click(x=nextButton.x, y=nextButton.y, clicks=1, button='left')
     # locates amount of players
-    for i in pyautogui.locateAllOnScreen('D:\Documents\PythonProjects\BluestacksWorldFlipper\Matching.PNG',
+    for i in pyautogui.locateAllOnScreen('Assets/Matching.PNG',
                                          confidence=0.9):
         playersMissing += 1
         print(i)
@@ -19,9 +19,9 @@ while True:
     # changeable line here
     if playersMissing <= 1:
         startButton = pyautogui.locateCenterOnScreen(
-            'D:\Documents\PythonProjects\BluestacksWorldFlipper\StartButton.PNG', confidence=0.7)
+            'Assets/StartButton.PNG', confidence=0.7)
         returnButton = pyautogui.locateCenterOnScreen(
-            'D:\Documents\PythonProjects\BluestacksWorldFlipper\ReturnToRoomButton.PNG', confidence=0.7)
+            'Assets/ReturnToRoomButton.PNG', confidence=0.7)
         if startButton:
             pyautogui.click(x=startButton.x, y=startButton.y, clicks=1, button='left')
         if returnButton:

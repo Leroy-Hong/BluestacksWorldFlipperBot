@@ -7,9 +7,9 @@ isRecruited = False
 isPaused = False
 playersMissing = 0
 while True:
-    coopButton = pyautogui.locateCenterOnScreen('D:\Documents\PythonProjects\BluestacksWorldFlipper\CoopButton.PNG', confidence=0.9)
-    recruitButton = pyautogui.locateCenterOnScreen('D:\Documents\PythonProjects\BluestacksWorldFlipper\RecruitButton.PNG', confidence=0.9)
-    reqBackupButton = pyautogui.locateCenterOnScreen('D:\Documents\PythonProjects\BluestacksWorldFlipper\ReqBackupButton.PNG', confidence=0.7)
+    coopButton = pyautogui.locateCenterOnScreen('Assets/CoopButton.PNG', confidence=0.9)
+    recruitButton = pyautogui.locateCenterOnScreen('Assets/RecruitButton.PNG', confidence=0.9)
+    reqBackupButton = pyautogui.locateCenterOnScreen('Assets/ReqBackupButton.PNG', confidence=0.7)
 
     if coopButton:
         print(coopButton)
@@ -26,7 +26,7 @@ while True:
             isRecruited = True
     else:
         #locates amount of players
-        for i in pyautogui.locateAllOnScreen('D:\Documents\PythonProjects\BluestacksWorldFlipper\Matching.PNG', confidence=0.9):
+        for i in pyautogui.locateAllOnScreen('Assets/Matching.PNG', confidence=0.9):
             playersMissing += 1
             print(i)
         print(f"PLayers missing:{playersMissing}")
@@ -34,11 +34,11 @@ while True:
         #changeable line here
         if playersMissing <= 1:
             startButton = pyautogui.locateCenterOnScreen(
-                'D:\Documents\PythonProjects\BluestacksWorldFlipper\StartButton.PNG', confidence=0.9)
+                'Assets/StartButton.PNG', confidence=0.9)
             pauseButton = pyautogui.locateCenterOnScreen(
-                'D:\Documents\PythonProjects\BluestacksWorldFlipper\PauseButton.PNG', confidence=0.7)
+                'Assets/PauseButton.PNG', confidence=0.7)
             abortButton = pyautogui.locateCenterOnScreen(
-                'D:\Documents\PythonProjects\BluestacksWorldFlipper\AbortButton.PNG', confidence=0.7)
+                'Assets/AbortButton.PNG', confidence=0.7)
 
             if startButton:
                 pyautogui.click(x=startButton.x, y=startButton.y, clicks=1, button='left')
@@ -48,7 +48,7 @@ while True:
                     pyautogui.click(x=abortButton.x, y=abortButton.y, clicks=1, button='left')
                 time.sleep(1)
                 yesButton = pyautogui.locateCenterOnScreen(
-                    'D:\Documents\PythonProjects\BluestacksWorldFlipper\YesButton.PNG', confidence=0.7)
+                    'Assets/YesButton.PNG', confidence=0.7)
                 if yesButton:
                     pyautogui.click(x=yesButton.x, y=yesButton.y, clicks=1, button='left')
                     isPaused = False
