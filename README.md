@@ -1,5 +1,6 @@
 # BluestacksWorldFlipperBot
-A non-user friendly python programme for bluestacks automation of a game known as world flipper. (for personal use)
+A non-user friendly python programme for bluestacks automation 
+of a game known as world flipper. (for personal use)
 
 Code is horribly unoptimized, still working on it.
 I am a beginner programmer and made this as a hobby
