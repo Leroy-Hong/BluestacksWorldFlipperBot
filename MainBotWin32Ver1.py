@@ -3,6 +3,7 @@ import pyautogui
 import cv2 as cv
 import time
 from enum import Enum
+from customFunctions import click_and_release, press_and_release
 
 VK_CODE = {'backspace':0x08,
            'tab':0x09,
@@ -148,37 +149,18 @@ VK_CODE = {'backspace':0x08,
            '[':0xDB,
            '\\':0xDC,
            ']':0xDD,
-           "'":0xDE,
-           '`':0xC0}
+           "'":0xDE}
 
 class Screens(Enum):
     coopScreen = 0
     winScreen = 1
-    pauseScreen = 2
 
-def press_and_release(key):
-    win32api.PostMessage(hwndChild, win32con.WM_KEYDOWN, key, 0)
-    time.sleep(.1)
-    win32api.PostMessage(hwndChild, win32con.WM_KEYUP, key, 0)
 
-def click_and_release(x,y):
-    windowOffset = win32gui.GetWindowRect(hwndChild)
-    x, y = x - windowOffset[0], y - windowOffset[1]
-    lParam = (int(y) << 16) | int(x)
-    pt = x, y
-    print(f"clicked{pt}")
-    # clickedhwnd = win32gui.WindowFromPoint(pt)
-    win32api.PostMessage(hwndChild, win32con.WM_LBUTTONDOWN, 0, lParam)
-    time.sleep(.1)
-    win32api.PostMessage(hwndChild, win32con.WM_LBUTTONUP, 0, lParam)
-
-isPaused = False
-playersMissing = 0
 currentScreen = 0
 questResultSeen = False
-
-
 windowName = '64 main'
+timeDelay = 4
+
 hwnd = win32gui.FindWindow(None, windowName)
 if hwnd:
     hwndChild = win32gui.GetWindow(hwnd, win32con.GW_CHILD)
@@ -191,37 +173,43 @@ else:
     print("hwnd not found")
     exit()
 
+#Callibration
 win32gui.SendMessage(hwndChild, win32con.WM_ACTIVATE, win32con.WA_CLICKACTIVE, 0)
 time.sleep(2)
 
 while True:
     if currentScreen == Screens.coopScreen.value:
+        #\\
         miniRoom = pyautogui.locateCenterOnScreen('Assets/MiniRoom.PNG', confidence=0.8)
         if miniRoom:
             print(miniRoom)
-            click_and_release(miniRoom.x, miniRoom.y)
-            time.sleep(4)
-            print("AAA")
-            press_and_release(VK_CODE['a'])
-            time.sleep(1)
+            click_and_release(hwndChild, miniRoom.x, miniRoom.y)
+            # Joins the room, delay for loading may vary (default = 4)
+            time.sleep(timeDelay)
+            press_and_release(hwndChild, VK_CODE['a'])
+            # Presses ready, idk what the delay is for
+            time.sleep(3)
             currentScreen = Screens.winScreen.value
-            time.sleep(2)
         else:
             refreshButton = pyautogui.locateCenterOnScreen(
                 'Assets/RefreshListButton.PNG', confidence=0.95)
             if refreshButton:
-                click_and_release(refreshButton.x, refreshButton.y)
+                click_and_release(hwndChild, refreshButton.x, refreshButton.y)
+                # Presses refresh list
                 time.sleep(1)
-
+        #\\
     elif currentScreen == Screens.winScreen.value:
+        #\\
         questResult = pyautogui.locateOnScreen(
             'Assets/QuestResult.PNG', confidence=0.9)
         if questResult:
-            press_and_release(VK_CODE['s'])
+            press_and_release(hwndChild, VK_CODE['s'])
+            # Presses next and or leave room
             questResultSeen = True
         elif not questResult and questResultSeen:
+            # if there is no quest result but it has been seen
             questResultSeen = False
             currentScreen = Screens.coopScreen.value
-
+        #\\
 
 
