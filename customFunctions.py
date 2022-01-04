@@ -1,4 +1,4 @@
-import win32api, win32con, time
+import win32api, win32con, win32gui, time
 
 def press_and_release(hwnd,key):
     win32api.PostMessage(hwnd, win32con.WM_KEYDOWN, key, 0)

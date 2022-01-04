@@ -201,8 +201,9 @@ while True:
     elif currentScreen == Screens.winScreen.value:
         #\\
         questResult = pyautogui.locateOnScreen(
-            'Assets/QuestResult.PNG', confidence=0.9)
+            'Assets/QuestResult.PNG', confidence=0.7)
         if questResult:
+            win32gui.SendMessage(hwndChild, win32con.WM_ACTIVATE, win32con.WA_CLICKACTIVE, 0)
             press_and_release(hwndChild, VK_CODE['s'])
             # Presses next and or leave room
             questResultSeen = True
