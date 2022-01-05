@@ -16,7 +16,7 @@ timeDelay = 4
 
 hwndChild = getHwnd(windowName)
 
-#Callibration
+#miniroom.png, refreshlistbutton.png, questResult.png
 win32gui.SendMessage(hwndChild, win32con.WM_ACTIVATE, win32con.WA_CLICKACTIVE, 0)
 time.sleep(2)
 
