@@ -3,7 +3,8 @@ A non-user friendly python programme for bluestacks automation
 of a game known as world flipper. (for personal use)
 
 Code is horribly unoptimized, still working on it.
-I am a beginner programmer and made this as a hobby
+I am a beginner programmer and made this as a hobby.
+I am open to suggestions / improvements.
 
 Use of pyautogui to read data on the bluestacks emulator,
 therefore emulator has to be in foreground
