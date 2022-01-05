@@ -1,9 +1,7 @@
-import win32gui, win32api, win32con
 import pyautogui
 import cv2 as cv
-import time
 from enum import Enum
-from customFunctions import press_and_release, getHwnd, VK_CODE
+from customFunctions import *
 
 class Screens(Enum):
     coopScreen = 0

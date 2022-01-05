@@ -1,7 +1,5 @@
-import win32gui, win32api, win32con
 import pyautogui
 import cv2 as cv
-import time
 from enum import Enum
 from customFunctions import *
 

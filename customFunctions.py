@@ -5,7 +5,6 @@ def press_and_release(hwnd,key):
     time.sleep(.1)
     win32api.PostMessage(hwnd, win32con.WM_KEYUP, key, 0)
 
-
 def click_and_release(hwnd,x,y):
     windowOffset = win32gui.GetWindowRect(hwnd)
     x, y = x - windowOffset[0], y - windowOffset[1]
