@@ -1,6 +1,8 @@
 # BluestacksWorldFlipperBot
 A non-user friendly python programme for bluestacks automation 
 of a game known as World Flipper. (for personal use)
+
+
 ![alt text](https://play-lh.googleusercontent.com/vMoDYU7ZuLOxFA_Q5BXGREAarZZOqPxMULIrndjgTbkkjDQjs2QrX4UYJ0Z3T6_yoQc=w240-h480-rw "World Flipper")
 
 Code is horribly unoptimized, still working on it.
