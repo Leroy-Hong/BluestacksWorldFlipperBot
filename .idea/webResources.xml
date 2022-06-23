@@ -6,6 +6,7 @@
         <entryData>
           <resourceRoots>
             <path value="file://$PROJECT_DIR$/Assets" />
+            <path value="file://$PROJECT_DIR$/ADB_Assets" />
           </resourceRoots>
         </entryData>
       </entry>

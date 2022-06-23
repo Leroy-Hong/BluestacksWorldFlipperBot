@@ -34,9 +34,9 @@ while True:
         time.sleep(2)
 
     elif currentScreen == Screens.lobbyScreen.value:
-        for i in pyautogui.locateAllOnScreen('Assets/Matching.PNG', confidence=0.8):
+        for i in pyautogui.locateAllOnScreen('Assets/Matching.PNG', confidence=0.9):
             playersMissing += 1
-            print(i)
+            # print(i)
         print(f"PLayers missing:{playersMissing}")
         # Counts the amount of Matching... -> missing people
 
@@ -46,8 +46,9 @@ while True:
             pauseButton = pyautogui.locateCenterOnScreen(
                 'Assets/PauseButton.PNG', confidence=0.9)
             if pauseButton:
-                time.sleep(0.5)
+                time.sleep(3)
                 # Ensure that the pause button is pressed
+                win32gui.SendMessage(hwndChild, win32con.WM_ACTIVATE, win32con.WA_CLICKACTIVE, 0)
                 press_and_release(hwndChild,VK_CODE["f"])
                 currentScreen = Screens.pauseScreen.value
             else:
