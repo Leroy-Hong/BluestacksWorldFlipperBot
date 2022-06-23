@@ -28,7 +28,6 @@ def initialisation():
     next_gray = cv.cvtColor(next_rgb, cv.COLOR_BGR2GRAY)
     closed_rgb = cv.imread('ADB_Assets/closedNotice.png')
     closed_gray = cv.cvtColor(closed_rgb, cv.COLOR_BGR2GRAY)
-
     error_rgb = cv.imread('ADB_Assets/ErrorNotice.png')
     error_gray = cv.cvtColor(error_rgb, cv.COLOR_BGR2GRAY)
 
