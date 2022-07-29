@@ -26,7 +26,7 @@ def initialisation():
     leave_gray = cv.cvtColor(leave_rgb, cv.COLOR_BGR2GRAY)
     next_rgb = cv.imread('ADB_Assets/NextButton.png')
     next_gray = cv.cvtColor(next_rgb, cv.COLOR_BGR2GRAY)
-    closed_rgb = cv.imread('ADB_Assets/closedNotice.png')
+    closed_rgb = cv.imread('ADB_Assets/ClosedNotice.png')
     closed_gray = cv.cvtColor(closed_rgb, cv.COLOR_BGR2GRAY)
     error_rgb = cv.imread('ADB_Assets/ErrorNotice.png')
     error_gray = cv.cvtColor(error_rgb, cv.COLOR_BGR2GRAY)
@@ -60,7 +60,7 @@ try:
             bellLeft, bellRight, bellConf = find(bell_gray)
             # d.click(500, 1500) # Go next
 
-            if bellConf > 0.80:
+            if bellConf > 0.75:
                 print("Bell detected!")
                 # (26,9) (93,76) bellbutton
                 d.click(93, 76)
@@ -71,8 +71,8 @@ try:
         if nextConf > 0.95:
             print('next')
             # (414, 1465) (489, 1540) nextbutton
-            for _ in range(2):
-                d.click(450, 1465)
+            for _ in range(3):
+                d.click(414, 1465)
                 time.sleep(0.2)
 
         leaveLeft, leaveRight, leaveConf = find(leave_gray)
